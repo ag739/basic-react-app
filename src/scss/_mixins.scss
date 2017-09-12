@@ -1,0 +1,36 @@
+// color constants
+$blue: #020080;
+$white: #fff;
+$black: #222;
+
+// color scheme
+$coral-red: #fb3640;
+$granite-grey: #605f5e;
+$lapis-lazuli: #247bac;
+$platinum: #e2e2e2;
+
+$jet: #343434;
+$mint-cream: #f7fff7;
+$maize: #ffe66d;
+$moonstone-blue: #6ca6c1;
+
+@mixin button($color) {
+  button {
+    border: 2px solid #{$color};
+    background-color: #{$color};
+    color: $white;
+
+    @include hover {
+      background-color: transparent;
+      color: #{$color};
+    }
+  }
+}
+
+@mixin hover {
+  transition: all ease 300ms;
+
+  &:hover {
+    @content;
+  }
+}

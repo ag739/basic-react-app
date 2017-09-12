@@ -1,0 +1,192 @@
+@import 'mixins';
+
+body {
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px;
+  text-transform: uppercase;
+}
+
+.App {
+  color: $black;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0 auto;
+  padding: 0;
+
+  .flex {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.Carousel {
+  .controller {
+    bottom: 30px;
+    height: 0;
+    position: relative;
+    text-align: center;
+  }
+
+  .slide {
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    transition: background-image 500ms ease;
+    width: 100%;
+
+    @include button($coral-red);
+
+    p {
+      color: $white;
+      font-size: 30px;
+      text-shadow: 0 0 5px $black;
+    }
+  }
+
+  .slide-control {
+    background-color: transparent;
+    border: 1px solid $platinum;
+    border-radius: 10px;
+    cursor: pointer;
+    height: 10px;
+    outline: none;
+    padding: 0;
+    margin: 3px;
+    width: 10px;
+
+    &.active {
+      background-color: $platinum;
+    }
+  }
+}
+
+.Footer {
+  align-items: center;
+  background-color: $jet;
+  border-top: 1px solid $granite-grey;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  min-height: 100px;
+
+  > * {
+    padding: 20px;
+  }
+
+  a {
+    color: $white;
+    text-decoration: none;
+  }
+}
+
+.LearnMore {
+  padding: 80px;
+  text-align: center;
+  width: 33%;
+
+  &:nth-of-type(3n-2) {
+    background-color: $maize;
+  }
+
+  &:nth-of-type(3n-1) {
+    background-color: $mint-cream;
+  }
+
+  &:nth-of-type(3n) {
+    background-color: $moonstone-blue;
+  }
+
+
+  .title {
+    color: $black;
+    font-size: 20px;
+  }
+
+  @include button($blue);
+
+  img {
+    width: 200px;
+  }
+}
+
+.NavBar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+
+  a, li {
+    align-items: center;
+    display: flex;
+  }
+
+  a {
+    color: $platinum;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+
+    @include hover {
+      color: $blue;
+      text-shadow: 0 0 10px $platinum;
+    }
+  }
+
+  li {
+    height: 100px;
+    justify-content: center;
+    width: 150px;
+  }
+
+  ul {
+    align-items: center;
+    background-color: $lapis-lazuli;
+    display: flex;
+    justify-content: space-around;  
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .hasSublist {
+    cursor: default;
+
+    &:hover {
+      & .sublist {
+        display: block;
+      }
+    }
+  }
+
+  .logo {
+    width: 100px;
+  }
+
+  .sublist {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100px;
+    z-index: 99;
+
+    &:hover {
+      display: block;
+    }
+
+    li {
+      border-bottom: 1px solid $white;
+
+      &:last-of-type {
+        border-bottom: none;
+      }
+    }
+  }
+}
